@@ -1,17 +1,17 @@
-import { ISignIn } from '@/domain/useCases';
+import { ISignUp } from '@/domain/useCases';
 import { Request } from '../contracts';
 import { errorHandler } from './helpers/error-handle';
 
-export class SignIn implements ISignIn {
+export class SignUp implements ISignUp {
   constructor(
     private readonly request: Request,
-    private readonly signInServiceUrl: string,
+    private readonly signUpServiceUrl: string,
   ) {}
 
-  public async signIn(data: ISignIn.Data): Promise<any> {
+  public async signUp(data: ISignUp.Data): Promise<any> {
     try {
       const result = await this.request.post({
-        uri: `${this.signInServiceUrl}`,
+        uri: `${this.signUpServiceUrl}`,
         data,
       });
 
