@@ -5,7 +5,7 @@ import { ItemMenu } from '../ItemMenu';
 export const SideMenu = () => {
   return (
     <Flex
-      w="15%"
+      w="12%"
       h="full"
       bg="gray.50"
       flexDir="column"

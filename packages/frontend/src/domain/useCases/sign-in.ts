@@ -6,5 +6,6 @@ export namespace ISignIn {
   export type Data = {
     emailOrUsername: string;
     password: string;
+    remember?: boolean;
   };
 }

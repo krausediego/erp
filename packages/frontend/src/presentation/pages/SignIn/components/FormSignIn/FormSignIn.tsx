@@ -1,7 +1,14 @@
 import { ISignIn } from '@/domain/useCases';
 import { Button, Input } from '@/presentation/components';
 import { useSignInMutation } from '@/presentation/hooks';
-import { Heading, Link, Text, useToast, VStack } from '@chakra-ui/react';
+import {
+  Heading,
+  Link,
+  Text,
+  useToast,
+  VStack,
+  Checkbox,
+} from '@chakra-ui/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { FormSignInProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
@@ -61,6 +68,9 @@ export const FormSignIn = ({ service }: FormSignInProps) => {
         errorMessage={errors?.password?.message}
         {...register('password')}
       />
+      <Checkbox w="full" colorScheme="teal" {...register('remember')}>
+        Lembrar-me
+      </Checkbox>
       <Button isLoading={isLoading} type="submit" fullWidth>
         Entrar
       </Button>

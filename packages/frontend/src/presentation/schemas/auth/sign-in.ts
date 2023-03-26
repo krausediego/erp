@@ -6,4 +6,5 @@ export const SignInSchema = yup.object().shape({
     .string()
     .min(6, 'A senha deve conter ao mínimo 6 caracteres')
     .required('Campo obrigatório'),
+  remember: yup.boolean(),
 });

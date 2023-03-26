@@ -22,7 +22,7 @@ export const CoreLayout = ({
     >
       <SideMenu />
       <Flex
-        w="85%"
+        w="88%"
         h="full"
         py={8}
         px={8}

@@ -2,9 +2,15 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/api/*",
+    "packages/frontend/*"
   ],
   "devDependencies": {
-    "lerna": "^6.6.1"
+    "lerna": "^6.6.1",
+    "typescript": "*"
+  },
+  "scripts": {
+    "dev:http": "yarn --cwd packages/frontend dev",
+    "dev:node": "yarn --cwd packages/api dev"
   }
 }

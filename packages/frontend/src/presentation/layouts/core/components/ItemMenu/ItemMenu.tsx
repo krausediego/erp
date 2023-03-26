@@ -11,7 +11,7 @@ export const ItemMenu = ({ label, route, icon }: ItemMenuProps) => {
       onClick={() => {
         return router.push(route);
       }}
-      w="60%"
+      w="80%"
       alignItems="center"
       spacing={4}
     >

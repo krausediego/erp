@@ -11,7 +11,7 @@ export class SignInService implements SignIn {
 
   public async run(params: SignIn.Params): Promise<SignIn.Response> {
     this.validateFields(params);
-    const { emailOrUsername, password } = params;
+    const { emailOrUsername, password, remember } = params;
 
     const user = await this.findUser.findUserGeneric({
       where: {
@@ -29,7 +29,7 @@ export class SignInService implements SignIn {
       throw new Error('Nome de usuário / Email ou senha incorretos');
     }
 
-    const token = this.token.generateToken(user);
+    const token = this.token.generateToken(user, remember);
 
     return { token };
   }
