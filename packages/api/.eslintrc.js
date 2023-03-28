@@ -39,19 +39,6 @@ module.exports = {
         '': 'never',
       },
     ],
-    'import-helpers/order-imports': [
-      'warn',
-      {
-        newlinesBetween: 'always',
-        groups: [
-          ['absolute'],
-          ['module'],
-          ['/^(@|~)/'],
-          ['parent', 'sibling', 'index'],
-        ],
-        alphabetize: { order: 'asc', ignoreCase: true },
-      },
-    ],
     '@typescript-eslint/no-unused-vars': [
       'error',
       {

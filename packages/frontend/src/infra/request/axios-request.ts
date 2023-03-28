@@ -4,7 +4,7 @@ import { serialize } from 'object-to-formdata';
 import { Request } from '@/data/contracts';
 
 export class AxiosRequest implements Request {
-  instance: AxiosInstance;
+  public instance: AxiosInstance;
 
   constructor() {
     this.instance = axios.create();
@@ -18,7 +18,6 @@ export class AxiosRequest implements Request {
   }
 
   async put(params: Request.RequestData<any>): Promise<any> {
-    console.log('CAIU NO PUT');
     const headers: any = {};
     if (params.bearerToken) headers.Authorization = params.bearerToken;
     const data = this.parseData(params.data, params.dataAs || 'json');

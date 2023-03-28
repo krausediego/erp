@@ -12,7 +12,7 @@ export class Token implements IToken {
     return jwt.sign(
       user,
       secret.secret as string,
-      remember ? {} : { expiresIn: '1d' },
+      remember ? {} : { expiresIn: '24h' },
     );
   }
 

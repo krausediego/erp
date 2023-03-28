@@ -1,6 +1,6 @@
 import { ICreateCustomer, ICreateAddress } from '@/domain/useCases';
 import { queryClient } from '@/pages/_app';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import isEmpty from 'lodash/isEmpty';
 
 interface CreateCustomerProps {

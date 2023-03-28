@@ -43,7 +43,7 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
       duration: 3000,
       isClosable: true,
     });
-    router.push('/signIn');
+    // router.push('/signIn');
   };
 
   useEffect(() => {
@@ -58,8 +58,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         return response;
       },
       error => {
-        if (error.response.status === 401) {
-          unauthorizedUser();
+        if (error) {
+          // unauthorizedUser();
         }
       },
     );

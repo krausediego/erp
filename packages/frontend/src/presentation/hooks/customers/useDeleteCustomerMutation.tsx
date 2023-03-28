@@ -1,6 +1,6 @@
 import { IDeleteCustomer } from '@/domain/useCases';
 import { queryClient } from '@/pages/_app';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 
 type useDeleteCustomerMutationProps = {
   token: string;

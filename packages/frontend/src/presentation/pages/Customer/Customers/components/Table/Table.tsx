@@ -1,26 +1,46 @@
+import { ICustomers } from '@/domain/useCases';
 import { Button, Search, Table } from '@/presentation/components';
 import { useAuth } from '@/presentation/contexts';
-import { useCustomersQuery, useDebounce } from '@/presentation/hooks';
+import {
+  useCustomersQuery,
+  useDebounce,
+  usePagination,
+} from '@/presentation/hooks';
 import { Flex, Tbody, Th, Thead, Tr } from '@chakra-ui/react';
 import { useRouter } from 'next/router';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { BodyTable } from './Body';
 import { TableCustomersProps } from './types';
 
 export const TableCustomers = ({ customerServices }: TableCustomersProps) => {
   const [search, setSearch] = useState('');
+  const [customers, setCustomers] = useState<
+    | {
+        data: ICustomers.Data[];
+        count?: number | undefined;
+      }
+    | null
+    | undefined
+  >(null);
 
   const { decoded, token } = useAuth();
   const { debouncedValue, loading } = useDebounce(search, 5000);
   const router = useRouter();
+
+  const { paginate, skip } = usePagination(customers?.count);
 
   const { data } = useCustomersQuery(
     customerServices,
     decoded?.id,
     token,
     debouncedValue,
+    skip,
   );
+
+  useEffect(() => {
+    setCustomers(data?.data);
+  }, [data]);
 
   const clearSearch = () => {
     setSearch('');
@@ -67,7 +87,7 @@ export const TableCustomers = ({ customerServices }: TableCustomersProps) => {
           </Tr>
         </Thead>
         <Tbody>
-          {data?.data?.data.map(customer => {
+          {customers?.data?.map(customer => {
             return (
               <BodyTable
                 key={customer.id}
@@ -78,6 +98,7 @@ export const TableCustomers = ({ customerServices }: TableCustomersProps) => {
           })}
         </Tbody>
       </Table>
+      {paginate()}
     </>
   );
 };

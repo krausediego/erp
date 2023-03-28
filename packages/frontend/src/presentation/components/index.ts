@@ -6,3 +6,4 @@ export * from './Search';
 export * from './InformationBadge';
 export * from './Select';
 export * from './Actions';
+export * from './Pagination';

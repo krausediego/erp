@@ -24,7 +24,7 @@ export default (router: Router): void => {
 
   router.get(
     '/get-all-customers',
-    // authToken,
+    authToken,
     adaptMiddleware(makeGetAllCustomersValidator()),
     adaptRoute(makeGetAllCustomersController()),
   );

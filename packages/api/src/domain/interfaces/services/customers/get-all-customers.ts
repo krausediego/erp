@@ -8,7 +8,8 @@ export namespace GetAllCustomers {
   export type Params = {
     user_id: string;
     search?: string;
+    skip: number;
   };
 
-  export type Response = Customer[];
+  export type Response = { data: Customer[]; count: number };
 }

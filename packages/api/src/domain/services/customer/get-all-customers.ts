@@ -6,11 +6,12 @@ export class GetAllCustomersService implements GetAllCustomers {
   public async run(
     params: GetAllCustomers.Params,
   ): Promise<GetAllCustomers.Response> {
-    const { user_id, search } = params;
+    const { user_id, search, skip } = params;
 
     const customers = await this.getAllCustomersRepository.findAllCustomers({
       user_id,
       search,
+      skip,
     });
     return customers;
   }

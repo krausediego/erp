@@ -3,7 +3,7 @@ import { IAddress } from '../address/address';
 export interface ICustomers {
   getCustomers({ user_id, token }: ICustomers.Params): Promise<{
     errors: any[];
-    data: { data: ICustomers.Data[] } | null;
+    data: { data: ICustomers.Data[]; count?: number } | null;
   }>;
 }
 
@@ -12,6 +12,7 @@ export namespace ICustomers {
     user_id: any;
     token: string;
     search?: string;
+    skip?: number;
   };
 
   export type Data = {

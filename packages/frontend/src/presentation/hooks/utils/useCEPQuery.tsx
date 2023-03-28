@@ -1,5 +1,5 @@
 import { IGetCEP } from '@/domain/useCases';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 
 type useCEPQueryProps = {
   getCEPService: IGetCEP;

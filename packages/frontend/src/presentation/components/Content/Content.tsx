@@ -7,6 +7,8 @@ export const Content = ({ children, title }: ContentProps) => {
       {!!title && <Heading fontSize="1.5rem">{title}</Heading>}
       <Flex
         w="full"
+        h="81vh"
+        overflowY="auto"
         p={8}
         bg="gray.50"
         borderRadius="md"

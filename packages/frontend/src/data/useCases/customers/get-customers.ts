@@ -12,18 +12,21 @@ export class GetCustomers implements ICustomers {
     user_id,
     token,
     search,
+    skip,
   }: ICustomers.Params): Promise<{
     errors: any[];
-    data: { data: ICustomers.Data[] } | null;
+    data: { data: ICustomers.Data[]; count?: number } | null;
   }> {
     try {
       const result = await this.request.get({
         uri: `${this.getCustomersServiceUrl}`,
-        data: { user_id, search },
+        data: { user_id, search, skip },
         bearerToken: token,
       });
 
-      return { errors: [], data: { data: result } || null };
+      console.log('SKIP', skip);
+
+      return { errors: [], data: result || null };
     } catch (err: any) {
       return errorHandler(err, err?.response?.status);
     }

@@ -1,7 +1,6 @@
 import { IEditAddress, IEditCustomer, ISignIn } from '@/domain/useCases';
 import { queryClient } from '@/pages/_app';
-import { useMutation } from 'react-query';
-import { useCookies } from 'react-cookie';
+import { useMutation } from '@tanstack/react-query';
 import isEmpty from 'lodash/isEmpty';
 
 interface EditCustomerProps {

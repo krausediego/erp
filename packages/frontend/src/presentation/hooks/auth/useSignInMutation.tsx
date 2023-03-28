@@ -1,6 +1,6 @@
 import { ISignIn } from '@/domain/useCases';
 import { queryClient } from '@/pages/_app';
-import { useMutation } from 'react-query';
+import { useMutation } from '@tanstack/react-query';
 import { useCookies } from 'react-cookie';
 import isEmpty from 'lodash/isEmpty';
 
@@ -25,7 +25,7 @@ export const useSignInMutation = ({ service }: SignInMutationProps) => {
     },
     {
       onSuccess: async user => {
-        return queryClient.setQueryData('user', user);
+        return queryClient.setQueryData(['user'], user);
       },
     },
   );
