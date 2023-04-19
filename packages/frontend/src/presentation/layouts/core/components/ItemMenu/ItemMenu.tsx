@@ -18,12 +18,12 @@ export const ItemMenu = ({ label, route, icon }: ItemMenuProps) => {
       <Icon
         as={icon}
         fontSize={30}
-        color={router.pathname === route ? 'teal' : ''}
+        color={router.pathname.startsWith(route) ? 'teal' : ''}
       />
       <Text
         fontSize="1.2rem"
         fontWeight="500"
-        color={router.pathname === route ? 'teal' : ''}
+        color={router.pathname.startsWith(route) ? 'teal' : ''}
       >
         {label}
       </Text>

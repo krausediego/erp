@@ -21,7 +21,15 @@ export const CoreLayout = ({
       data-testid="auth-layout"
     >
       <SideMenu />
-      <Flex w="88%" h="full" py={8} px={8} flexDir="column" gap={10}>
+      <Flex
+        w="88%"
+        h="full"
+        py={8}
+        px={8}
+        flexDir="column"
+        overflowY="scroll"
+        gap={10}
+      >
         <Flex alignItems="center" gap={4}>
           {backRoute && (
             <Icon

@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { MdAdd } from 'react-icons/md';
 import { BodyTableMateriasPrimas } from './Body';
 import { TableMateriasPrimasProps } from './types';
+import { useRouter } from 'next/router';
 
 export const TableMateriasPrimas = ({
   materiasPrimasService,
@@ -14,6 +15,7 @@ export const TableMateriasPrimas = ({
 
   const { debouncedValue, loading } = useDebounce(search, 5000);
   const { decoded, token } = useAuth();
+  const router = useRouter();
 
   const { data } = useMateriasPrimasQuery(
     materiasPrimasService,
@@ -40,9 +42,9 @@ export const TableMateriasPrimas = ({
           isLoading={loading}
         />
         <Button
-          // onClick={() => {
-          //   return router.push('/customers/new-customer');
-          // }}
+          onClick={() => {
+            return router.push('/materia-prima/new-materia-prima');
+          }}
           leftIcon={<MdAdd size={20} />}
         >
           Adicionar Matéria prima
