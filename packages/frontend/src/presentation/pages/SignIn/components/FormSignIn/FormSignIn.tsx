@@ -38,6 +38,7 @@ export const FormSignIn = ({ service }: FormSignInProps) => {
         duration: 3000,
         isClosable: true,
       });
+      router.push('/dashboard');
     } catch (err: any) {
       toast({
         title: 'Erro ao realizar o login.',

@@ -3,6 +3,7 @@ import { SideMenu } from './components';
 import { CoreLayoutProps } from './types';
 import { MdOutlineWest } from 'react-icons/md';
 import { useRouter } from 'next/router';
+import { useMenuSize } from '@/presentation/contexts';
 
 export const CoreLayout = ({
   children,
@@ -10,24 +11,19 @@ export const CoreLayout = ({
   backRoute,
   ...rest
 }: CoreLayoutProps) => {
+  const { isOpen } = useMenuSize();
   const router = useRouter();
 
   return (
-    <Flex
-      w="full"
-      h="100vh"
-      justifyContent="center"
-      alignItems="center"
-      data-testid="auth-layout"
-    >
+    <Flex w="full" h="100vh" alignItems="center" data-testid="auth-layout">
       <SideMenu />
       <Flex
-        w="88%"
+        w={isOpen ? '88%' : '95%'}
         h="full"
         py={8}
         px={8}
         flexDir="column"
-        overflowY="scroll"
+        overflowY="auto"
         gap={10}
       >
         <Flex alignItems="center" gap={4}>

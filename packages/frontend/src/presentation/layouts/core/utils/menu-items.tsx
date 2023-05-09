@@ -1,27 +1,36 @@
 import { MenuItemsProps } from './types';
-import {
-  MdDashboard,
-  MdPeopleAlt,
-  MdOutlineConstruction,
-} from 'react-icons/md';
+import { LayoutDashboard, User2, Hammer } from 'lucide-react';
 
 export const menuItems: MenuItemsProps[] = [
   {
     id: 1,
-    label: 'Dashboard',
-    route: '/dashboard',
-    icon: MdDashboard,
+    type: 'category',
+    label: 'Análises',
   },
   {
     id: 2,
-    label: 'Clientes',
-    route: '/customers',
-    icon: MdPeopleAlt,
+    type: 'item',
+    label: 'Dashboard',
+    route: '/dashboard',
+    icon: LayoutDashboard,
   },
   {
     id: 3,
-    label: 'Matéria prima',
+    type: 'category',
+    label: 'Controle',
+  },
+  {
+    id: 4,
+    type: 'item',
+    label: 'Clientes',
+    route: '/customers',
+    icon: User2,
+  },
+  {
+    id: 5,
+    type: 'item',
+    label: 'Matéria Prima',
     route: '/materia-prima',
-    icon: MdOutlineConstruction,
+    icon: Hammer,
   },
 ];

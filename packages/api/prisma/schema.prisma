@@ -46,10 +46,10 @@ model MateriaPrima {
   id         String   @id @default(uuid())
   user       User     @relation(fields: [user_id], references: [id])
   user_id    String
-  name       String
+  name       String // Nome da matéria prima
   quantity   Float
-  unit       Unit     @default(un)
-  amount     Float
+  unit       Unit     @default(un) // Unidade de medida
+  amount     Float // Valor
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
 }
